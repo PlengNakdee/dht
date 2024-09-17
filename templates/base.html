@@ -9,29 +9,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django + Tailwind CSS</title>
     <link rel="stylesheet" href="{% static 'src/styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/themes/light.css" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/shoelace-autoloader.js"></script>
 
 </head>
 
 <body>
     <div class="container mx-auto mt-4">
-        <nav>
-            <h1 class="text-3xl text-red-800">
-                Django + HTMX + Tailwind
-            </h1>
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/profile/">Profile</a>
-                </li>
-                <li>
-                    <a href="/dashboard/">Error Demo</a>
-                </li>
-            </ul>
-        </nav>
-        {% block content %}
-        {% endblock content %}
+        <h1 class="text-3xl text-red-800 pb-8">
+            Django + HTMX + Tailwind
+        </h1>
+        <div class="flex">
+            <div class="basis-1/4">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/profile/">Profile</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="basis-1/2"> {% block content %}
+                {% endblock content %}</div>
+        </div>
     </div>
 </body>
 
