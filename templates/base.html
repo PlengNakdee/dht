@@ -7,12 +7,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="htmx-config" content='{"selfRequestsOnly": false}' />
     <title>Django + Tailwind CSS</title>
     <link rel="stylesheet" href="{% static 'src/styles.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/themes/light.css" />
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/shoelace-autoloader.js"></script>
-
+    <script src="https://unpkg.com/htmx.org@2.0.2"
+        integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -28,7 +31,7 @@
                             <a href="/">Dashboard</a>
                         </li>
                         <li>
-                            <a href="/profile/">Profile</a>
+                            <a href="/jokes/">Jokes</a>
                         </li>
                     </ul>
                 </nav>

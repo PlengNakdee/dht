@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="gap-y-6">
+    <h1 class="text-xl text-purple-800">Jokes</h1>
+    <p class="text-l text-purple-800">test hx-get</p>
+    <div class="mt-6">
+        <button class="" hx-get="https://v2.jokeapi.dev/joke/Any?format=txt&safe-mode">
+            Click me to load a joke</button>
+    </div>
+</div>
+
+{% endblock content %}
