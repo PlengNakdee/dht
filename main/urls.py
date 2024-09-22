@@ -4,4 +4,5 @@ from main import views
 urlpatterns = [
     path('', views.index),
     path('jokes/', views.jokes),
+    path('cards/', views.cards)
 ]

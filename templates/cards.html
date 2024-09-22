@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<script src="{% static 'js/ds-card.js' %}" defer></script>
+
+<div class="gap-y-6">
+    <h1 class="text-xl text-blue-600">Cards</h1>
+    <p class="text-l text-blue-600">card varients</p>
+    <div class="mt-6">
+        <ul class="gap-y-6">
+            <li>
+                <ds-card title="Title" content="description">
+                    <img slot="image" src="../static/img/image.svg" alt="Card image" />
+                </ds-card>
+            </li>
+            <li>
+                <ds-card title="Card 2" content="This is another card with different content!">
+                    <img slot="image" src="../static/img/thumbnail.svg" alt="Card image" />
+                </ds-card>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock content %}
