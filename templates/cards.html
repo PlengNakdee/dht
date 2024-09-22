@@ -5,23 +5,54 @@
 
 <script src="{% static 'js/ds-card.js' %}" defer></script>
 
-<div class="gap-y-6">
-    <h1 class="text-xl text-blue-600">Cards</h1>
-    <p class="text-l text-blue-600">card varients</p>
-    <div class="mt-6">
-        <ul class="gap-y-6">
-            <li>
-                <ds-card title="Title" content="description">
-                    <img slot="image" src="../static/img/image.svg" alt="Card image" />
-                </ds-card>
-            </li>
-            <li>
-                <ds-card title="Card 2" content="This is another card with different content!">
-                    <img slot="image" src="../static/img/thumbnail.svg" alt="Card image" />
-                </ds-card>
-            </li>
-        </ul>
+<div>
+    <div>
+        <h1 class="text-xl text-blue-600">Cards</h1>
+        <p class="text-l text-blue-600">card varients</p>
     </div>
+
+    <div class="grid gap-4 grid-cols-2">
+        <div>
+            <ds-card title="List" description="Short description" size="md">
+                <img slot="image" src="../static/img/image.svg" alt="Card image" />
+            </ds-card>
+        </div>
+        <div>
+            <ds-card title="List Hover" description="Short description" size="md" state="hover">
+                <img slot="image" src="../static/img/image.svg" alt="Card image" />
+            </ds-card>
+        </div>
+        <ds-card title="Deck" description="This is a deck card." size="md" variant="deck">
+            <img slot="image" src="../static/img/thumbnail.svg" alt="Placeholder Image">
+        </ds-card>
+        <ds-card title="Deck Hover" description="This is a deck card." size="md" variant="deck">
+            <img slot="image" src="../static/img/thumbnail.svg" alt="Placeholder Image">
+        </ds-card>
+    </div>
+    <div class="mt-6"></div>
+    <!-- <div class="grid gap-4 grid-cols-2">
+        <div>
+            <ds-card title="Title" description="Short description">
+                <img slot="image" src="../static/img/image.svg" alt="Card image" />
+            </ds-card>
+        </div>
+        <div>
+            <ds-card title="Title" description="Short description">
+                <img slot="image" src="../static/img/image.svg" alt="Card image" />
+            </ds-card>
+        </div>
+        <div>
+            <ds-card title="Title" description="Short description">
+                <img slot="image" src="../static/img/thumbnail.svg" alt="Card image" />
+            </ds-card>
+        </div>
+        <div>
+            <ds-card title="Title" description="Short description">
+                <img slot="image" src="../static/img/thumbnail.svg" alt="Card image" />
+            </ds-card>
+        </div>
+    </div> -->
 </div>
+
 
 {% endblock content %}
