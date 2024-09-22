@@ -2,7 +2,13 @@ class DsCard extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+        this.render();
+        this.updateSize();
+        this.updateState();
+        this.updateVariant();
+    }
 
+    render() {
         this.shadowRoot.innerHTML = `
             <style>
                 :host {
@@ -12,89 +18,84 @@ class DsCard extends HTMLElement {
                     border: 1px solid #E0E1E5;
                     border-radius: 8px;
                     overflow: hidden;
-                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
                 }
-                .hover {
+                .card.hover {
                     border: none;
-                }
-                .list {
-                }
-                .deck {        
+                    box-shadow: 0px 9px 10px 0px rgba(57, 45, 123, 0.07);
                 }
                 .image-wrapper {
-                    padding-left: 16px;
-                    margin-bottom: 12px;
+                    text-align: center;
+                    margin: 16px;
+                }
+                .horizontal {
+                    display: flex;
+                    align-items: center;
+                }
+                .horizontal .image-wrapper {
+                    margin-right: 16px;
                 }
                 .thumbnail-wrapper {
-                    margin-bottom: 12px;
                 }
                 .card img {
                     width: 100%;
-                }
+                    display: block;
                 }
                 .content {
+                    flex-grow: 1;
+                }
+                .vertical .title {
+                    padding-left: 16px;
+                }
+                .vertical .description {
+                    padding-left: 16px;
+                }
+                .vertical .subtitle-wrapper {
+                    padding-left: 16px;
                 }
                 .title {
                     font-size: 16px;
-                    font-style: normal;
                     font-weight: 500;
-                    line-height: 24px;
                     color: #392D7B;
-                    padding-left: 16px;
                     margin: 0;
                 }
                 .description {
                     font-size: 14px;
-                    font-style: normal;
                     font-weight: 400;
-                    line-height: 22px;
                     color: #9A99A7;
-                    padding-left: 16px;
-                    margin-top: 0;
-                    margin-bottom: 12px;
+                    margin: 0 0 12px 0;
                 }
                 .subtitle-wrapper {
                     font-size: 12px;
-                    font-style: normal;
                     font-weight: 500;
-                    line-height: 16px;
                     color: #5964AB;
-                    padding-left: 16px;
                     margin-bottom: 12px;
                 }
-                .small {
-                    width: 280px;
+                .small, .md, .large, .md-deck {
+                    width: auto;
                 }
-                .md {
-                    width: 280px;
-                }
-                .md-deck {
-                    width: 236px;
-                }
-                .large {
-                    width: 400px;
-                }
+                .sm { width: 280px; }
+                .md { width: 337px; }
+                .md-deck { width: 236px; }
             </style>
             <div class="card">
                 <div class="thumbnail-wrapper">
                     <slot name="thumbnail"></slot>
                 </div>
-                <div class="content">
+                <div class="content ${this.getAttribute('variant') === 'horizontal' ? 'horizontal' : 'vertical'}">
                     <div class="image-wrapper">
                         <slot name="image"></slot>
                     </div>
-                    <h2 class="title">${this.getAttribute('title')}</h2>
-                    <p class="description">${this.getAttribute('description')}</p>
-                    <div class="subtitle-wrapper">
-                        <slot name="subtitle"></slot>
-                    <div>
+                    <div class="content-details">
+                        <h2 class="title">${this.getAttribute('title') || 'Default Title'}</h2>
+                        <p class="description">${this.getAttribute('description') || 'No description provided.'}</p>
+                        <div class="subtitle-wrapper">
+                            <slot name="subtitle"></slot>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         `;
-
-        this.updateSize();
-        this.updateState();
-        this.updateVariant();
     }
 
     updateSize() {
@@ -111,11 +112,9 @@ class DsCard extends HTMLElement {
 
     updateVariant() {
         const variant = this.getAttribute('variant');
-        if (variant === 'deck') {
-            this.shadowRoot.querySelector('.card').classList.add('deck');
-        } else {
-            this.shadowRoot.querySelector('.card').classList.add('list');
-        }
+        const content = this.shadowRoot.querySelector('.content');
+        content.classList.toggle('horizontal', variant === 'horizontal');
+        content.classList.toggle('vertical', variant !== 'horizontal');
     }
 }
 
