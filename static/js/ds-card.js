@@ -9,32 +9,30 @@ class DsCard extends HTMLElement {
                     display: block;
                 }
                 .card {
-                    border: 1px solid #ccc;
+                    border: 1px solid #E0E1E5;
                     border-radius: 8px;
                     overflow: hidden;
                     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
                 }
-                
                 .hover {
                     border: none;
                 }
-                .deck {
-                    border: 1px solid #ccc;    /* Optional border for deck style */
-                    box-shadow: none;           /* No shadow for deck style */
-                    padding: 16px;              /* Padding for deck */
+                .list {
+                }
+                .deck {        
                 }
                 .image-wrapper {
+                    padding-left: 16px;
                     margin-bottom: 12px;
                 }
-                .thumnail-wrapper {
-                    margin: 0;
+                .thumbnail-wrapper {
+                    margin-bottom: 12px;
                 }
                 .card img {
                     width: 100%;
-                    height: auto;
+                }
                 }
                 .content {
-                    padding: 12px;
                 }
                 .title {
                     font-size: 16px;
@@ -42,6 +40,7 @@ class DsCard extends HTMLElement {
                     font-weight: 500;
                     line-height: 24px;
                     color: #392D7B;
+                    padding-left: 16px;
                     margin: 0;
                 }
                 .description {
@@ -50,13 +49,27 @@ class DsCard extends HTMLElement {
                     font-weight: 400;
                     line-height: 22px;
                     color: #9A99A7;
-                    margin: 0;
+                    padding-left: 16px;
+                    margin-top: 0;
+                    margin-bottom: 12px;
+                }
+                .subtitle-wrapper {
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 16px;
+                    color: #5964AB;
+                    padding-left: 16px;
+                    margin-bottom: 12px;
                 }
                 .small {
                     width: 280px;
                 }
                 .md {
                     width: 280px;
+                }
+                .md-deck {
+                    width: 236px;
                 }
                 .large {
                     width: 400px;
@@ -72,6 +85,9 @@ class DsCard extends HTMLElement {
                     </div>
                     <h2 class="title">${this.getAttribute('title')}</h2>
                     <p class="description">${this.getAttribute('description')}</p>
+                    <div class="subtitle-wrapper">
+                        <slot name="subtitle"></slot>
+                    <div>
                 </div>
             </div>
         `;
@@ -83,14 +99,13 @@ class DsCard extends HTMLElement {
 
     updateSize() {
         const size = this.getAttribute('size') || 'md';
-        const usage = this.getAttribute('usage') || 'list';
         this.shadowRoot.querySelector('.card').classList.add(size);
     }
 
     updateState() {
         const state = this.getAttribute('state');
         if (state === 'hover') {
-            this.shadowRoot.querySelector('.card').classList.add(state);
+            this.shadowRoot.querySelector('.card').classList.add('hover');
         }
     }
 
@@ -98,6 +113,8 @@ class DsCard extends HTMLElement {
         const variant = this.getAttribute('variant');
         if (variant === 'deck') {
             this.shadowRoot.querySelector('.card').classList.add('deck');
+        } else {
+            this.shadowRoot.querySelector('.card').classList.add('list');
         }
     }
 }
