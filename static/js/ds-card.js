@@ -52,6 +52,9 @@ class DsCard extends HTMLElement {
                 .vertical .subtitle-wrapper {
                     padding-left: 16px;
                 }
+                .title-wrapper {
+                    display: flex;
+                }
                 .title {
                     font-size: 16px;
                     font-weight: 500;
@@ -70,6 +73,9 @@ class DsCard extends HTMLElement {
                     color: #5964AB;
                     margin-bottom: 12px;
                 }
+                .icon-image-wrapper{
+                    padding-left: 6px;
+                }
                 .small, .md, .large, .md-deck {
                     width: auto;
                 }
@@ -86,7 +92,12 @@ class DsCard extends HTMLElement {
                         <slot name="image"></slot>
                     </div>
                     <div class="content-details">
+                    <div class="title-wrapper">
                         <h2 class="title">${this.getAttribute('title') || 'Default Title'}</h2>
+                            <div class="icon-image-wrapper">
+                                <slot name="icon-image"></slot>
+                            </div>
+                    </div>
                         <p class="description">${this.getAttribute('description') || 'No description provided.'}</p>
                         <div class="subtitle-wrapper">
                             <slot name="subtitle"></slot>
