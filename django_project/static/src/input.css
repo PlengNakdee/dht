@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .card-index {
+        border-radius: 2px;
+        border-color: gray;
+        padding: 10px;
+    }
+}
