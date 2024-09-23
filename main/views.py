@@ -6,5 +6,5 @@ def index(request):
 def jokes(request):
     return render(request, 'jokes.html')
 
-def cards(request):
-    return render(request, 'cards.html')
+def card(request):
+    return render(request, 'card.html')
