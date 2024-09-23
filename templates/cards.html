@@ -53,14 +53,26 @@
     </div>
     <div class="mt-6"></div>
     <div class="flex flex-row gap-4">
-        <ds-card title="List" description="Short description of the card." variant="horizontal" size="md">
-            <img slot="image" src="../static/img/image.svg" alt="Image Description" />
-            <img slot="icon-image" src="../static/img/ai.svg" alt="Icon Description">
-        </ds-card>
-        <ds-card title="List Hover" description="Short description of the card." variant="horizontal" size="sm">
-            <img slot="image" src="../static/img/image.svg" alt="Image Description" />
-            <img slot="icon-image" src="../static/img/ai.svg" alt="Icon Description">
-        </ds-card>
+        <div class="relative flex items-center">
+            <div
+                class="absolute -inset-1 rounded-lg bg-gradient-to-r from-indigo-500 via-fuchsia-600 to-red-500 opacity-75">
+            </div>
+            <ds-card title="Title Here" description="Short description of the card." variant="horizontal" size="md"
+                border-color="transparent" class="relative rounded-lg bg-white max-h-20">
+                <img slot="image" src="../static/img/image.svg" alt="Image Description" />
+                <img slot="icon-image" src="../static/img/ai.svg" alt="Icon Description">
+            </ds-card>
+        </div>
+        <div class="relative flex items-center">
+            <div
+                class="absolute -inset-1 rounded-lg bg-gradient-to-r from-indigo-500 via-fuchsia-600 to-red-500 opacity-75">
+            </div>
+            <ds-card title="Title Here" description="Short description of the card." variant="horizontal" size="sm"
+                border-color="transparent" class="relative rounded-lg bg-white max-h-20">
+                <img slot="image" src="../static/img/image.svg" alt="Image Description" />
+                <img slot="icon-image" src="../static/img/ai.svg" alt="Icon Description">
+            </ds-card>
+        </div>
     </div>
 </div>
 

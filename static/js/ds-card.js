@@ -9,13 +9,15 @@ class DsCard extends HTMLElement {
     }
 
     render() {
+        const borderColor = this.getAttribute('border-color') || '#E0E1E5';
+
         this.shadowRoot.innerHTML = `
             <style>
                 :host {
                     display: block;
                 }
                 .card {
-                    border: 1px solid #E0E1E5;
+                    border: 1px solid ${borderColor};
                     border-radius: 8px;
                     overflow: hidden;
                 }
@@ -33,8 +35,6 @@ class DsCard extends HTMLElement {
                 }
                 .horizontal .image-wrapper {
                     margin-right: 16px;
-                }
-                .thumbnail-wrapper {
                 }
                 .card img {
                     width: 100%;
