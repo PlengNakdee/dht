@@ -35,11 +35,9 @@
                 left: 0;
                 z-index: -1;
                 border-radius: inherit;
-                /* !importanté */
                 background: linear-gradient(to right, #6D68FB, #B20EFF, #EF4C4C);
             }
         }
-
 
         ds-card {
             margin: 0;
@@ -53,15 +51,13 @@
     <h1>DS-Cards</h1>
     <div class="card-container">
         <ds-card title="My Custom Card" description="This is a description of the card." border-color="#E0E1E5"
-            size="md" variant="horizontal">
-            <img slot="image" src="https://via.placeholder.com/150" alt="Placeholder Image">
-            <span slot="thumbnail"><strong>Thumbnail Content</strong></span>
-            <span slot="subtitle">Subtitle Content</span>
-            <img slot="icon-image" src="https://via.placeholder.com/20" alt="Icon Image">
+            size="md" variant="vertical">
+            <img slot="image" src="https://via.placeholder.com/50" alt="Placeholder Image">
         </ds-card>
         <ds-card title="My Custom Card" description="This is a description of the card." border-color="#E0E1E5"
-            size="md" variant="vertical">
-            <img slot="thumbnail" src="https://via.placeholder.com/50" alt="Placeholder Image">
+            size="md-deck" variant="vertical">
+            <img slot="thumbnail" src="https://via.placeholder.com/240x140" alt="Placeholder Image">
+            <span slot="subtitle">Subtitle Content</span>
         </ds-card>
         <ds-card title="Horizontal md" description="This is a description of the card." border-color="#E0E1E5" size="md"
             variant="horizontal">
@@ -126,7 +122,6 @@
                         box-shadow: 0px 9px 10px 0px rgba(57, 45, 123, 0.07);
                     }
                     .image-wrapper {
-                        text-align: center;
                         margin: 16px;
                     }
                     .horizontal {
@@ -175,9 +170,6 @@
                     }
                     .icon-image-wrapper {
                         padding-left: 6px;
-                    }
-                    .small, .md, .large, .md-deck {
-                        width: auto;
                     }
                     .sm { width: 280px; }
                     .md { width: 337px; }
