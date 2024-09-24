@@ -12,8 +12,39 @@
             gap: 20px;
         }
 
+        .gradient-box {
+            display: flex;
+            align-items: center;
+            margin: auto;
+            max-height: 142px;
+
+            position: relative;
+            padding: 4px;
+            box-sizing: border-box;
+
+            background-clip: padding-box;
+            border: solid border transparent;
+            border-radius: 8px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: inherit;
+                /* !importanté */
+                background: linear-gradient(to right, #6D68FB, #B20EFF, #EF4C4C);
+            }
+        }
+
+
         ds-card {
             margin: 0;
+            background: white;
+            border-radius: 6px;
         }
     </style>
 </head>
@@ -32,11 +63,39 @@
             size="md" variant="vertical">
             <img slot="thumbnail" src="https://via.placeholder.com/50" alt="Placeholder Image">
         </ds-card>
-
-        <ds-card title="My Custom Card" description="This is a description of the card." border-color="#E0E1E5"
-            size="sm" variant="horizontal">
+        <ds-card title="Horizontal md" description="This is a description of the card." border-color="#E0E1E5" size="md"
+            variant="horizontal">
             <img slot="image" src="https://via.placeholder.com/50" alt="Placeholder Image">
         </ds-card>
+        <ds-card title="Horizontal sm" description="This is a description of the card." border-color="#E0E1E5" size="sm"
+            variant="horizontal">
+            <img slot="image" src="https://via.placeholder.com/50" alt="Placeholder Image">
+        </ds-card>
+        <ds-card title="Horizontal md" description="This is a description of the card." border-color="#E0E1E5" size="md"
+            variant="horizontal">
+            <img slot="image" src="https://via.placeholder.com/50" alt="Placeholder Image">
+            <img slot="icon-image" src="https://img.icons8.com/color/20/search" alt="Search Icon">
+        </ds-card>
+        <ds-card title="Horizontal sm" description="This is a description of the card." border-color="#E0E1E5" size="sm"
+            variant="horizontal">
+            <img slot="image" src="https://via.placeholder.com/50" alt="Placeholder Image">
+            <img slot="icon-image" src="https://img.icons8.com/color/20/search" alt="Search Icon">
+        </ds-card>
+        <div class="gradient-box">
+            <ds-card title="Gradient md" description="This is a description of the card."
+                border-color="linear-gradient(to right, blue 0%, green 50%, yellow 100%);" size="md"
+                variant="horizontal">
+                <img slot="image" src="https://via.placeholder.com/50" alt="Placeholder Image">
+                <img slot="icon-image" src="https://img.icons8.com/color/20/search" alt="Search Icon">
+            </ds-card>
+        </div>
+        <div class="gradient-box">
+            <ds-card title="Gradient sm" description="This is a description of the card." size="sm"
+                variant="horizontal">
+                <img slot="image" src="https://via.placeholder.com/50" alt="Placeholder Image">
+                <img slot="icon-image" src="https://img.icons8.com/color/20/search" alt="Search Icon">
+            </ds-card>
+        </div>
     </div>
 
     <script>
@@ -50,7 +109,7 @@
             }
 
             render() {
-                const borderColor = this.getAttribute('border-color') || '#E0E1E5';
+                const borderColor = this.getAttribute('border-color') || 'transparent';
 
                 this.shadowRoot.innerHTML = `
                 <style>
@@ -62,7 +121,7 @@
                         border-radius: 8px;
                         overflow: hidden;
                     }
-                    .card::hover {
+                    .card:hover {
                         border: none;
                         box-shadow: 0px 9px 10px 0px rgba(57, 45, 123, 0.07);
                     }
